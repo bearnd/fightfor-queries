@@ -1,0 +1,1085 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-08-13T06:42:59.101Z",
+	"__export_source": "insomnia.desktop.app:v6.0.2",
+	"resources": [
+		{
+			"_id": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"created": 1532731122248,
+			"description": "GraphQL queries for the `FightFor` project",
+			"modified": 1532834939469,
+			"name": "fightfor",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_7b7a06f7a7b94c53a5581ccdbf66edfb",
+			"color": null,
+			"created": 1532731122285,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1534142579148,
+			"modified": 1532731122285,
+			"name": "New Environment",
+			"parentId": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_dcc0eeaa62764e718232c0a8cd040f97",
+			"cookies": [],
+			"created": 1532731122336,
+			"modified": 1532731122336,
+			"name": "Default Jar",
+			"parentId": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_936e9d1bc4e941ef941cf2e923f010c0",
+			"created": 1532834986156,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1532834986156,
+			"modified": 1532834986156,
+			"name": "studies",
+			"parentId": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_e706d33e80e24037872c7158f18477ff",
+			"created": 1533248301429,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1533248301429,
+			"modified": 1533248301429,
+			"name": "descriptors",
+			"parentId": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_b09f4938b366469ba7c6302511629744",
+			"created": 1533471217278,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1533041643792.5,
+			"modified": 1533471225342,
+			"name": "studyStats",
+			"parentId": "wrk_a78d387df2a74c96b066550b2a249b2d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"created": 1532835650789,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1532731250255,
+			"modified": 1532835658724,
+			"name": "Filter CT Studies",
+			"parentId": "fld_936e9d1bc4e941ef941cf2e923f010c0",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_3b77c98e8a9b496d975186697fdee1f5",
+			"created": 1532837147142,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1532731250305,
+			"modified": 1532837154618,
+			"name": "Retrieve studies",
+			"parentId": "fld_936e9d1bc4e941ef941cf2e923f010c0",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_52657cf88a03488fac6152b576669613",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getDescriptorByUi($ui: String!) {\\n  descriptors {\\n    byUi(ui: $ui) {\\n      descriptorId,\\n      descriptorClass,\\n\\t\\t\\tui,\\n\\t\\t\\tname,\\n\\t\\t\\tcreated,\\n\\t\\t\\trevised,\\n\\t\\t\\testablished,\\n\\t\\t\\tsynonyms {\\n\\t\\t\\t\\tsynonym\\n\\t\\t\\t},\\n\\t\\t\\ttreeNumbers {\\n\\t\\t\\t\\ttreeNumberId,\\n\\t\\t\\t\\ttreeNumber\\n\\t\\t\\t}\\n    }\\n  }\\n}\\n\",\"variables\":{\"ui\":\"D000068216\"},\"operationName\":\"getDescriptorByUi\"}"
+			},
+			"created": 1533248311286,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_84eb2788fde749d0bb523d0f836c1ae2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250167.5,
+			"method": "POST",
+			"modified": 1533252727918,
+			"name": "Retrieve by UI",
+			"parameters": [],
+			"parentId": "fld_e706d33e80e24037872c7158f18477ff",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8855bf0d10104baba7a6a04cb7379b94",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getDescriptorByTreeNumberPrefix($treeNumberPrefix: String!) {\\n  descriptors {\\n    byTreeNumberPrefix(treeNumberPrefix: $treeNumberPrefix) {\\n      descriptorId,\\n      descriptorClass,\\n\\t\\t\\tui,\\n\\t\\t\\tname,\\n\\t\\t\\tcreated,\\n\\t\\t\\trevised,\\n\\t\\t\\testablished,\\n\\t\\t\\tsynonyms {\\n\\t\\t\\t\\tsynonym\\n\\t\\t\\t},\\n\\t\\t\\ttreeNumbers {\\n\\t\\t\\t\\ttreeNumberId,\\n\\t\\t\\t\\ttreeNumber\\n\\t\\t\\t} \\n    }\\n  }\\n}\\n\",\"variables\":{\"treeNumberPrefix\":\"N03.540.400\"},\"operationName\":\"getDescriptorByTreeNumberPrefix\"}"
+			},
+			"created": 1533248889353,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_84eb2788fde749d0bb523d0f836c1ae2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250161.25,
+			"method": "POST",
+			"modified": 1533252751646,
+			"name": "Retrieve by tree-number prefix",
+			"parameters": [],
+			"parentId": "fld_e706d33e80e24037872c7158f18477ff",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6f9579458af8466f800e183038146918",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getDescriptorsBySynonym(\\n\\t$synonym: String!,\\n\\t$limit: Int,\\n) {\\n  descriptors {\\n    bySynonym(\\n\\t\\t\\tsynonym: $synonym,\\n\\t\\t\\tlimit: $limit,\\n\\t\\t) {\\n      descriptorId,\\n      descriptorClass,\\n\\t\\t\\tui,\\n\\t\\t\\tname,\\n\\t\\t\\tcreated,\\n\\t\\t\\trevised,\\n\\t\\t\\testablished,\\n\\t\\t\\tsynonyms {\\n\\t\\t\\t\\tsynonym\\n\\t\\t\\t},\\n    }\\n  }\\n}\\n\",\"variables\":{\"synonym\":\"brain cancer\",\"limit\":10},\"operationName\":\"getDescriptorsBySynonym\"}"
+			},
+			"created": 1533251704837,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_84eb2788fde749d0bb523d0f836c1ae2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250158.125,
+			"method": "POST",
+			"modified": 1533252755933,
+			"name": "Retrieve by synonym",
+			"parameters": [],
+			"parentId": "fld_e706d33e80e24037872c7158f18477ff",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_092c30f147f34d7fb3ce0e10c4078170",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getCountStudiesByCountry(\\n\\t$studyIds: [Int]!, \\n\\t$limit: Int\\n) {\\n\\tstudiesStats {\\n\\t\\tcountStudiesByCountry(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tlimit: $limit\\n\\t\\t) {\\n\\t\\t\\tcountry,\\n\\t\\t\\tcountStudies\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getCountStudiesByCountry\"}"
+			},
+			"created": 1533471244134,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1533471244134,
+			"method": "POST",
+			"modified": 1533537589567,
+			"name": "Count studies by country",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_dc6c0bb605224314b61d49c259871459",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getCountStudiesByOverallStatus(\\n\\t$studyIds: [Int]!, \\n\\t$limit: Int\\n) {\\n\\tstudiesStats {\\n\\t\\tcountStudiesByOverallStatus(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tlimit: $limit\\n\\t\\t) {\\n\\t\\t\\toverallStatus,\\n\\t\\t\\tcountStudies\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getCountStudiesByOverallStatus\"}"
+			},
+			"created": 1533537602037,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1533101247169.5,
+			"method": "POST",
+			"modified": 1533943122552,
+			"name": "Count studies by overall-status",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f3fbd8c7a1f84fa18dba44901a88fc2b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getCountStudiesByFacility(\\n\\t$studyIds: [Int]!, \\n\\t$limit: Int\\n) {\\n\\tstudiesStats {\\n\\t\\tcountStudiesByFacility(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tlimit: $limit\\n\\t\\t) {\\n\\t\\t\\tfacility {\\n\\t\\t\\t\\tfacilityId,\\n\\t\\t\\t\\tname,\\n\\t\\t\\t\\tcity,\\n\\t\\t\\t\\tstate,\\n\\t\\t\\t\\tcountry,\\n\\t\\t\\t},\\n\\t\\t\\tcountStudies\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getCountStudiesByFacility\"}"
+			},
+			"created": 1533943122717,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532916248687.25,
+			"method": "POST",
+			"modified": 1533943988249,
+			"name": "Count studies by facility",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d8a0d9cc682140f7b45a517250391afd",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getUniqueCities(\\n\\t$studyIds: [Int]!,\\n) {\\n\\tstudiesStats {\\n\\t\\tgetUniqueCities(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t)\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getUniqueCities\"}"
+			},
+			"created": 1533943182315,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532823749446.125,
+			"method": "POST",
+			"modified": 1533943989648,
+			"name": "Retrieve unique cities",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ed4d1273c39a4ed1b364092dfa9d1514",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getUniqueStates(\\n\\t$studyIds: [Int]!,\\n) {\\n\\tstudiesStats {\\n\\t\\tgetUniqueStates(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t)\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getUniqueStates\"}"
+			},
+			"created": 1533943671399,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532777499825.5625,
+			"method": "POST",
+			"modified": 1533944082264,
+			"name": "Retrieve unique states",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c97a00eeb2cf43c08801aeedde988694",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getUniqueCountries(\\n\\t$studyIds: [Int]!,\\n) {\\n\\tstudiesStats {\\n\\t\\tgetUniqueCountries(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t)\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getUniqueCountries\"}"
+			},
+			"created": 1533943693203,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532754375015.2812,
+			"method": "POST",
+			"modified": 1534026630207,
+			"name": "Retrieve unique countries",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8d542891a22947eeb55f661bce77205c",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getDateRange(\\n\\t$studyIds: [Int]!,\\n) {\\n\\tstudiesStats {\\n\\t\\tgetDateRange(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t) {\\n\\t\\t\\tdateBeg,\\n\\t\\t\\tdateEnd,\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getDateRange\"}"
+			},
+			"created": 1534026636332,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532742812610.1406,
+			"method": "POST",
+			"modified": 1534049905493,
+			"name": "Retrieve start-date range",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_fe6905e23f4842dc8fd14856dba2e053",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getAgeRange(\\n\\t$studyIds: [Int]!,\\n) {\\n\\tstudiesStats {\\n\\t\\tgetAgeRange(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t) {\\n\\t\\t\\tageBeg,\\n\\t\\t\\tageEnd,\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[270624,305679,1373,300183,1506,1650,278796,1698,1708,1799,1883,1912,2015,278805,270669,105470,2588,2607,2640,2648,2729,2786,2886,298772,304378,3015,3057,3166,309542,3324,3323,3322,3343,3341,3344,3424,258574,286710,3851,3849,256364,4229,4240,4524,253817,5085,285174,5205,5632,5714,5818,258648,315393,6493,109186,7008,307121,286789,292924,286797,7577,109983,7783,260621,8054,8057,285245,8336,8330,111377,111613,8575,8799,9055,258722,9128,291443,9712,9818,258740,10063,10094,10254,10603,10765,10950,113042,11505,283746,301777,311802,291492,12260,12547,12577,12758,282207,12864,267599,13081,289989,254056,251094,13932,115861,291534,14182,14499,247636,264307,15023,15244,258868,15469,15867,283804,120356,291597,18225,18235,18338,18343,18346,18777,18778,121136,18880,307262,293113,279161,304631,20162,20389,20392,304633,20908,251274,288558,21290,272708,300526,312795,22067,294686,22336,22694,22956,274364,294688,23392,310889,308578,279220,260929,279234,24723,24964,24926,282389,251399,25860,308601,25968,290175,26225,277658,282413,27466,288662,27484,302002,300606,27611,27617,27929,28278,28339,248096,28438,254443,296286,311926,29336,266216,307403,29550,244479,308656,30059,30264,30461,30529,31266,280900,279328,31861,32009,32020,32041,274502,248224,290261,32536,33066,33237,277751,285625,33902,34052,34224,34280,34239,34359,34502,277782,306125,296370,35967,36187,36213,36229,293358,36596,36658,276191,272937,37129,37661,38793,293400,39119,316215,244824,244827,39356,39416,271285,39565,262944,40142,261175,248516,284169,40590,40640,40807,41199,41479,277865,41741,276263,42238,42318,42402,42577,42685,42723,307530,276267,251836,43332,43687,44070,273032,44267,44422,44482,45120,45233,45312,308773,271380,46014,303549,46392,46540,46559,46572,271393,297945,252023,47298,264783,47687,48043,48091,48085,252036,48722,263027,49167,49303,49315,49499,49564,254898,49641,49655,49770,49780,49945,306280,50048,281122,254924,50609,287408,300873,50948,316353,261319,254950,293538,308855,51794,288964,252164,254974,52046,52052,52083,313807,52277,52412,295082,52769,52772,52824,52798,268167,53090,53333,54309,54327,305021]},\"operationName\":\"getAgeRange\"}"
+			},
+			"created": 1534049911222,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ca5d9f7bbe894179a59afcce31e66a46",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532737031407.5703,
+			"method": "POST",
+			"modified": 1534139631470,
+			"name": "Retrieve eligiblity age-range in seconds",
+			"parameters": [],
+			"parentId": "fld_b09f4938b366469ba7c6302511629744",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e1bb325eba0044a1ad54522aa0001cc4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies($studyIds: [Int]!) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[141,142,143,144]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532835417377,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250155,
+			"method": "POST",
+			"modified": 1533288869226,
+			"name": "Filter by IDs",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_706deac98174476f820e79335e0cc84f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$countries: [String]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tcountries: $countries\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle\\n\\t\\t\\tlocations {\\n\\t\\t\\t\\tfacility {\\n\\t\\t\\t\\t\\tname,\\n\\t\\t\\t\\t\\tcity,\\n\\t\\t\\t\\t\\tstate,\\n\\t\\t\\t\\t\\tcountry\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[141,142,143,144],\"countries\":[\"United States\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532835576336,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250105,
+			"method": "POST",
+			"modified": 1533288871377,
+			"name": "Filter by country",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1d1e1836fa3045a0a0598fc0fd96c6af",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$cities: [String]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tcities: $cities\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tlocations {\\n\\t\\t\\t\\tfacility {\\n\\t\\t\\t\\t\\tname,\\n\\t\\t\\t\\t\\tcity,\\n\\t\\t\\t\\t\\tstate,\\n\\t\\t\\t\\t\\tcountry\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[1,8,10,11,12,13],\"cities\":[\"Minneapolis\",\"Burlington\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532835708748,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250055,
+			"method": "POST",
+			"modified": 1533288874432,
+			"name": "Filter by city",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ffed23751de1484497fcc984792b1849",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$states: [String]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tstates: $states\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tlocations {\\n\\t\\t\\t\\tfacility {\\n\\t\\t\\t\\t\\tname,\\n\\t\\t\\t\\t\\tcity,\\n\\t\\t\\t\\t\\tstate,\\n\\t\\t\\t\\t\\tcountry\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[1,8,10,11,12,13],\"states\":[\"Minnesota\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532847999099,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250080,
+			"method": "POST",
+			"modified": 1533288872984,
+			"name": "Filter by state",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_aee0642b0b01450492f55cb06d891647",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $overallStatuses: [OverallStatusType]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\toverallStatuses: $overallStatuses\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n      overallStatus\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[1,8,10,11,12,13],\"overallStatuses\":[\"COMPLETED\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532848103525,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250005,
+			"method": "POST",
+			"modified": 1533288987961,
+			"name": "Filter by overall-status",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e58b603e55f448089ae909c5307280f3",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $interventionTypes: [InterventionType]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tinterventionTypes: $interventionTypes\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tinterventions {\\n\\t\\t\\t\\tinterventionType,\\n\\t\\t\\t\\tname\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[40,41,42,43,44,45],\"interventionTypes\":[\"DRUG\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532849095840,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249955,
+			"method": "POST",
+			"modified": 1533288993690,
+			"name": "Filter by intervention-type",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b56f9e6dcb8644d5ac91d487a00c7602",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $phases: [PhaseType]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tphases: $phases\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tphase\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[10814,262286,531,20999,453,13703],\"phases\":[\"PHASE_1\",\"PHASE_2\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532849439682,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249905,
+			"method": "POST",
+			"modified": 1533213894915,
+			"name": "Filter by phase",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_05efe315ce44441f8b789899f5e0b57e",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $studyTypes: [StudyType]\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tstudyTypes: $studyTypes\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstudyType\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"studyTypes\":[\"INTERVENTIONAL\"]},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532936113248,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249855,
+			"method": "POST",
+			"modified": 1533213897014,
+			"name": "Filter by study-type",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a3d47712a50540ac963d158003089951",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $yearBeg: Int,\\n  $yearEnd: Int\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tyearBeg: $yearBeg,\\n\\t\\t\\tyearEnd: $yearEnd\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"yearBeg\":2005,\"yearEnd\":2007},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532937776601,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249805,
+			"method": "POST",
+			"modified": 1534124013380,
+			"name": "Filter by year",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f79973b7e1c84353added3d7f0875f81",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$countries: [String],\\n\\t$states: [String],\\n\\t$cities: [String],\\n\\t$overallStatuses: [OverallStatusType],\\n\\t$interventionTypes: [InterventionType],\\n\\t$phases: [PhaseType],\\n\\t$studyTypes: [StudyType],\\n  $yearBeg: Int,\\n  $yearEnd: Int,\\n  $orderBy: String,\\n\\t$order: TypeEnumOrder,\\n  $limit: Int,\\n\\t$offset: Int,\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tcountries: $countries,\\n\\t\\t\\tstates: $states,\\n\\t\\t\\tcities: $cities,\\n\\t\\t\\toverallStatuses: $overallStatuses,\\n\\t\\t\\tinterventionTypes: $interventionTypes,\\n\\t\\t\\tphases: $phases,\\n\\t\\t\\tstudyTypes: $studyTypes,\\n\\t\\t\\tyearBeg: $yearBeg,\\n\\t\\t\\tyearEnd: $yearEnd,\\n\\t\\t\\torderBy: $orderBy,\\n\\t\\t\\torder: $order,\\n  \\t\\tlimit: $limit,\\n\\t\\t\\toffset: $offset,\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tlocations {\\n\\t\\t\\t\\tlocationId,\\n\\t\\t\\t\\tstatus,\\n\\t\\t\\t\\tfacility {\\n\\t\\t\\t\\t\\tname,\\n\\t\\t\\t\\t\\tcity,\\n\\t\\t\\t\\t\\tstate,\\n\\t\\t\\t\\t\\tcountry\\n\\t\\t\\t\\t}\\n\\t\\t\\t},\\n\\t\\t\\toverallStatus,\\n\\t\\t\\tinterventions {\\n\\t\\t\\t\\tinterventionType,\\n\\t\\t\\t\\tname\\n\\t\\t\\t},\\n\\t\\t\\tconditions {\\n\\t\\t\\t\\tconditionId,\\n\\t\\t\\t\\tcondition,\\n\\t\\t\\t},\\n\\t\\t\\tphase,\\n\\t\\t\\tstudyType,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"yearBeg\":2005,\"yearEnd\":2007},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532943552915,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249755,
+			"method": "POST",
+			"modified": 1533630931380,
+			"name": "Complete Example",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_23d439361ea24de78d96d852a01f6519",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $orderBy: String,\\n\\t$order: EnumOrder\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\torderBy: $orderBy,\\n\\t\\t\\torder: $order\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"orderBy\":\"start_date\",\"order\":\"DESC\"},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532944456464,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249780,
+			"method": "POST",
+			"modified": 1533213900279,
+			"name": "Order by year",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_cc1edb20b0d94c2eaf305e642a640d32",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $orderBy: String,\\n\\t$order: TypeEnumOrder\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\torderBy: $orderBy,\\n\\t\\t\\torder: $order\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"orderBy\":\"briefTitle\",\"order\":\"ASC\"},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532944652226,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249767.5,
+			"method": "POST",
+			"modified": 1533375192396,
+			"name": "Order by title",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_89779a2934994da68b6ec75494ce717a",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $limit: Int\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tlimit: $limit\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"limit\":2},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532944739009,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249761.25,
+			"method": "POST",
+			"modified": 1533289091465,
+			"name": "Limit",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e9fdedac3edf45788b2ab2d9d93115ad",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $limit: Int,\\n\\t$offset: Int\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tlimit: $limit,\\n\\t\\t\\toffset: $offset\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"limit\":2,\"offset\":2},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532944779249,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249758.125,
+			"method": "POST",
+			"modified": 1533289089458,
+			"name": "Limit-Offset",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_79dd9e1f6cb0423187d144ea363d6488",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$orderBy: String,\\n\\t$order: TypeEnumOrder,\\n  $limit: Int,\\n\\t$offset: Int\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\torderBy: $orderBy,\\n\\t\\t\\torder: $order,\\n\\t\\t\\tlimit: $limit,\\n\\t\\t\\toffset: $offset,\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"orderBy\":\"start_date\",\"order\":\"ASC\",\"limit\":2,\"offset\":2},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1532944832868,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249756.5625,
+			"method": "POST",
+			"modified": 1533291866346,
+			"name": "Order-Limit-Offset",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_adf5a4a71a3d4022a23bb7899b8b9fc4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query countStudies(\\n\\t$studyIds: [Int]!,\\n\\t$countries: [String],\\n\\t$states: [String],\\n\\t$cities: [String],\\n\\t$overallStatuses: [OverallStatusType],\\n\\t$interventionTypes: [InterventionType],\\n\\t$phases: [PhaseType],\\n\\t$studyTypes: [StudyType],\\n  $yearBeg: Int,\\n  $yearEnd: Int,\\n) {\\n\\tstudies {\\n\\t\\tcount(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tcountries: $countries,\\n\\t\\t\\tstates: $states,\\n\\t\\t\\tcities: $cities,\\n\\t\\t\\toverallStatuses: $overallStatuses,\\n\\t\\t\\tinterventionTypes: $interventionTypes,\\n\\t\\t\\tphases: $phases,\\n\\t\\t\\tstudyTypes: $studyTypes,\\n\\t\\t\\tyearBeg: $yearBeg,\\n\\t\\t\\tyearEnd: $yearEnd,\\n\\t\\t) \\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"yearBeg\":2005,\"yearEnd\":2007},\"operationName\":\"countStudies\"}"
+			},
+			"created": 1533291334054,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249755.7812,
+			"method": "POST",
+			"modified": 1533538520426,
+			"name": "Count Studies",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_01526031efe74f0aaeac658fedc98480",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n\\t$countries: [String],\\n\\t$states: [String],\\n\\t$cities: [String],\\n\\t$overallStatuses: [OverallStatusType],\\n\\t$interventionTypes: [InterventionType],\\n\\t$phases: [PhaseType],\\n\\t$studyTypes: [StudyType],\\n  $yearBeg: Int,\\n  $yearEnd: Int,\\n  $orderBy: String,\\n\\t$order: TypeEnumOrder,\\n  $limit: Int,\\n\\t$offset: Int,\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tcountries: $countries,\\n\\t\\t\\tstates: $states,\\n\\t\\t\\tcities: $cities,\\n\\t\\t\\toverallStatuses: $overallStatuses,\\n\\t\\t\\tinterventionTypes: $interventionTypes,\\n\\t\\t\\tphases: $phases,\\n\\t\\t\\tstudyTypes: $studyTypes,\\n\\t\\t\\tyearBeg: $yearBeg,\\n\\t\\t\\tyearEnd: $yearEnd,\\n\\t\\t\\torderBy: $orderBy,\\n\\t\\t\\torder: $order,\\n  \\t\\tlimit: $limit,\\n\\t\\t\\toffset: $offset,\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tlocations {\\n\\t\\t\\t\\tstatus,\\n\\t\\t\\t\\tfacility {\\n\\t\\t\\t\\t\\tname,\\n\\t\\t\\t\\t\\tcity,\\n\\t\\t\\t\\t\\tstate,\\n\\t\\t\\t\\t\\tcountry\\n\\t\\t\\t\\t}\\n\\t\\t\\t},\\n\\t\\t\\toverallStatus,\\n      studyMeshTerms {\\n        meshTermType,\\n        meshTerm {\\n          term,\\n\\t\\t\\t\\t},\\n\\t\\t\\t},\\n\\t\\t\\tphase,\\n\\t\\t\\tstudyType,\\n\\t\\t\\tstartDate,\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"yearBeg\":2005,\"yearEnd\":2007},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1533630956659,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249705,
+			"method": "POST",
+			"modified": 1533943117678,
+			"name": "Complete Example (Copy)",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1fa99d956eb74256b463377d56908d5f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query filterStudies(\\n\\t$studyIds: [Int]!,\\n  $ageBegSec: Int,\\n  $ageEndSec: Int\\n) {\\n\\tstudies {\\n\\t\\tfilter(\\n\\t\\t\\tstudyIds: $studyIds,\\n\\t\\t\\tageBegSec: $ageBegSec,\\n\\t\\t\\tageEndSec: $ageEndSec,\\n\\t\\t) {\\n\\t\\t\\tstudyId,\\n\\t\\t\\tbriefTitle,\\n\\t\\t\\tstartDate,\\n\\t\\t\\teligibility {\\n\\t\\t\\t\\tminimumAge,\\n\\t\\t\\t\\tmaximumAge,\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n}\",\"variables\":{\"studyIds\":[704,24225,46262,47065],\"ageBegSec\":567648000,\"ageEndSec\":630720000},\"operationName\":\"filterStudies\"}"
+			},
+			"created": 1534124016765,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d5776476364a4b5ba1847fac897611a9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731249792.5,
+			"method": "POST",
+			"modified": 1534140666875,
+			"name": "Filter by eligibility-age",
+			"parameters": [],
+			"parentId": "fld_e84f585bad844c62a42e52d4e7a1ef02",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_015cf64b3b744f49a4917c706f2db724",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getStudiesByNctId($nctIds: [String]!) {\\n  studies {\\n    byNctId(nctIds: $nctIds) {\\n      nctId,\\n      briefTitle,\\n    }\\n  }\\n}\\n\",\"variables\":{\"nctIds\":[\"NCT00500734\",\"NCT00000149\",\"NCT00000193\"]},\"operationName\":\"getStudiesByNctId\"}"
+			},
+			"created": 1532731250205,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_84eb2788fde749d0bb523d0f836c1ae2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250205,
+			"method": "POST",
+			"modified": 1533471252265,
+			"name": "Retrieve by NCT IDs",
+			"parameters": [],
+			"parentId": "fld_3b77c98e8a9b496d975186697fdee1f5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c27b144257924dde904523aee09e16b4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query getStudiesById($studyIds: [Int]!) {\\n  studies {\\n    byId(studyIds: $studyIds) {\\n      nctId,\\n      briefTitle,\\n    }\\n  }\\n}\\n\",\"variables\":{\"studyIds\":[1,8,10,11]},\"operationName\":\"getStudiesById\"}"
+			},
+			"created": 1533247508094,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_84eb2788fde749d0bb523d0f836c1ae2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1532731250180,
+			"method": "POST",
+			"modified": 1533471261697,
+			"name": "Retrieve by IDs",
+			"parameters": [],
+			"parentId": "fld_3b77c98e8a9b496d975186697fdee1f5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:5555/graphql",
+			"_type": "request"
+		}
+	]
+}
